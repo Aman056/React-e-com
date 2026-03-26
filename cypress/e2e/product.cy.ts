@@ -31,7 +31,7 @@ cy.contains("button", "Add to Cart").should("exist");
     cy.contains("Cart").click();
     cy.url().should("include", "/cart");
     cy.contains("Your cart is empty").should("not.exist");
-    cy.get("h6").should("exist"); // product title
+    cy.get("h6").should("exist"); 
     cy.contains("₹").should("exist"); // price
   });
 
