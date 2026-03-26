@@ -1,46 +1,179 @@
-# Getting Started with Create React App
+# 🛒 E-Com Aman (React E-commerce App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and modern **E-commerce web application** built using React.
+Users can browse products, view details, and manage their shopping cart.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# 🚀 Features
 
-### `npm start`
+* 🛍️ View all products
+* 🔍 Product detail page
+* ➕ Add to cart
+* ➖ Increase / decrease quantity
+* 🧾 Cart summary (total items & price)
+* 📱 Responsive design (mobile friendly)
+* ⚡ Smooth animations using Framer Motion
+* 🧠 State management using MobX
+* 🧪 End-to-End testing using Cypress
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 🛠️ Tech Stack
 
-### `npm test`
+* React (Create React App)
+* React Router
+* MobX
+* Bootstrap
+* Framer Motion
+* Cypress (for testing)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+# 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/YOUR-USERNAME/e-com-aman.git
+cd e-com-aman
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install dependencies:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# ▶️ Run the App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Open in browser:
 
-## Learn More
+```
+http://localhost:3000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# 🧪 Cypress Testing Setup
+
+## 1. Install Cypress
+
+```bash
+npm install cypress --save-dev
+```
+
+---
+
+## 2. Open Cypress
+
+```bash
+npx cypress open
+```
+
+This will create a folder:
+
+```
+cypress/
+  e2e/
+  fixtures/
+  support/
+```
+
+---
+
+## 3. Create Test File
+
+Create file:
+
+```
+cypress/e2e/products.cy.js
+```
+
+---
+
+## 4. Sample Test Cases
+
+```js
+describe("E-commerce App", () => {
+
+  beforeEach(() => {
+    cy.visit("http://localhost:3000");
+  });
+
+  it("should load products", () => {
+    cy.get(".card").should("exist");
+  });
+
+  it("should navigate to product details", () => {
+    cy.get(".card").first().click();
+    cy.url().should("include", "/product/");
+  });
+
+  it("should add product to cart", () => {
+    cy.contains("Add to Cart").first().click();
+    cy.contains("+").should("exist");
+  });
+
+});
+```
+
+---
+
+## 5. Run Tests (Headless)
+
+```bash
+npx cypress run
+```
+
+---
+
+# 📂 Project Structure
+
+```
+src/
+  components/
+  pages/
+  cartStore.js
+  App.js
+
+cypress/
+  e2e/
+    products.cy.js
+```
+
+---
+
+# 🧠 How It Works
+
+* Products are fetched from API
+* Cart is managed using MobX store
+* UI updates automatically when state changes
+* Cypress tests simulate real user behavior
+
+---
+
+# 📸 Future Improvements
+
+* 🔐 User authentication
+* 💳 Payment integration
+* 📦 Order history
+* ⭐ Product reviews
+
+---
+
+# 🙌 Author
+
+Made with ❤️ by **Aman**
+
+---
+
+# ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
